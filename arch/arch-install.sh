@@ -20,7 +20,7 @@ echo "Script executed."
 sudo cp /etc/pacman.conf /etc/pacman.conf.bak
 echo "[multilib]" | sudo tee -a /etc/pacman.conf > /dev/null
 echo "Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
-sudo pacman -Sy wine-staging winetricks
+sudo pacman -Sy curl wine-staging winetricks
 winecfg
 winetricks -q dxvk
 curl --location --request GET 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F90.0.4430.72%2FChromeStandaloneSetup.exe' --output /home/$USER/Downloads/Chrome.exe
