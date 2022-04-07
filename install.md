@@ -106,6 +106,7 @@ winetricks -q dxvk
 ```
 Thirdly, Download Chrome (90) from Slimjet.
 https://www.slimjet.com/chrome/download-chrome.php?file=files%2F90.0.4430.72%2FChromeStandaloneSetup.exe
+
 Go to where .exe downloaded.
 ```
 cd /path/to/exe
