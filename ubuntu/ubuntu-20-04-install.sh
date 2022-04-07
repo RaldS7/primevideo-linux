@@ -17,13 +17,15 @@ if [[ $answer == "yes" || $answer == "YES" ]]; then
 echo
 echo "Script executed."
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo dpkg --add-architecture i386 
+wget -nc https://dl.winehq.org/wine-builds/winehq.key ; sudo apt-key add winehq.key
 echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' | sudo tee -a /etc/apt/sources.list > /dev/null
 sudo apt update ; sudo apt install --install-recommends winehq-staging ; sudo apt install curl winetricks
 winecfg
 winetricks -q dxvk
 curl --location --request GET 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F90.0.4430.72%2FChromeStandaloneSetup.exe' --output /home/$USER/Downloads/Chrome.exe
 wine /home/$USER/Downloads/Chrome.exe
-elif [[ $answer == "no" || $anser == "NO" ]]; then
+elif [[ $answer == "no" || $answer == "NO" ]]; then
 echo
 echo "Script didn't executed and exiting."
 else
