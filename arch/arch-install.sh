@@ -25,7 +25,7 @@ winecfg
 winetricks -q dxvk
 curl --location --request GET 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F90.0.4430.72%2FChromeStandaloneSetup.exe' --output /home/$USER/Downloads/Chrome.exe
 wine /home/$USER/Downloads/Chrome.exe
-elif [[ $answer == "no" || $anser == "NO" ]]; then
+elif [[ $answer == "no" || $answer == "NO" ]]; then
 echo
 echo "Script didn't executed and exiting."
 else
