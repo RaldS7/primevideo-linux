@@ -19,27 +19,19 @@ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 Add the repository: 
 For Ubuntu 20.04: 
 ```
-sudo -s
-echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' >> /etc/apt/sources.list
-exit
+echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
 For Ubuntu 21.10:
 ```
-sudo -s
-echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ impish main' >> /etc/apt/sources.list
-exit
+echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ impish main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
 For Ubuntu 21.04:
 ```
-sudo -s
-echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute main' >> /etc/apt/sources.list
-exit
+echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
 For Ubuntu 20.10:
 ```
-sudo -s
-echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main' >> /etc/apt/sources.list
-exit
+echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
 Update packages: 
 ```
@@ -51,21 +43,15 @@ sudo apt install --install-recommends winehq-staging
 ```
 For Debian 10 (Buster):
 ```
-sudo -s
-echo 'deb https://dl.winehq.org/wine-builds/debian/ buster main' >> /etc/apt/sources.list
-exit
+echo 'deb https://dl.winehq.org/wine-builds/debian/ buster main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
 For Debian 11 (Bullseye):
 ```
-sudo -s
-echo 'deb https://dl.winehq.org/wine-builds/debian/ bullseye main' >> /etc/apt/sources.list
-exit
+echo 'deb https://dl.winehq.org/wine-builds/debian/ bullseye main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
 For Debian Testing (Bookworm):
 ```
-sudo -s
-echo 'deb https://dl.winehq.org/wine-builds/debian/ bookworm main' >> /etc/apt/sources.list
-exit
+echo 'deb https://dl.winehq.org/wine-builds/debian/ bookworm main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
 Update packages: 
 ```
@@ -118,11 +104,11 @@ Secondly, enable dxvk.
 ```
 winetricks -q dxvk
 ```
-Thirdly, install Chrome (90) from Slimjet.
+Thirdly, Download Chrome (90) from Slimjet.
 https://www.slimjet.com/chrome/download-chrome.php?file=files%2F90.0.4430.72%2FChromeStandaloneSetup.exe
 Go to where .exe downloaded.
 ```
-cd ~/Downloads
+cd /path/to/exe
 ```
 Run the .exe file with wine and install.
 ```
