@@ -18,6 +18,7 @@ echo
 echo "Script executed."
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo dpkg --add-architecture i386 
+sudo apt install wget 
 wget -nc https://dl.winehq.org/wine-builds/winehq.key ; sudo apt-key add winehq.key
 echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' | sudo tee -a /etc/apt/sources.list > /dev/null
 sudo apt update ; sudo apt install --install-recommends winehq-staging ; sudo apt install curl winetricks
