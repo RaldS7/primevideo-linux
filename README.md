@@ -1,10 +1,12 @@
-### I made a script that installs wine-staging and Chrome (90) but it's just made for Arch-based Distros, I tested it in Arch Linux on virtual machine. 
-### To run that script, download as zip and unzip, open the extracted folder with terminal and run the code below:
+# How to watch Amazon's primevideo on Arch & Ubuntu 20.04
+## If you are using Arch, run codes below:
 ```
 sudo chmod a+rx arch/arch-install.sh
 sh arch/arch-install.sh
 ```
-### I didn't made any script for Ubuntu & Debian yet. 
-### update: there is a ubuntu 20.04 script and i tested it.
-### If you want to install manually for Ubuntu & Debian, read the install.md file.
-### If you are an Arch user and don't want to run the script made for Arch-based distros, you can read the install.md file too.
+## If you are using Ubuntu 20.04, run codes below:
+```
+sudo chmod a+rx ubuntu/ubuntu-20-04-install.sh
+cd ubuntu 
+./ubuntu-20-04-install.sh
+```
