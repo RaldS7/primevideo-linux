@@ -18,8 +18,17 @@ if [[ $answer == "yes" || $answer == "YES" ]]; then
 echo
 echo "Script executed."
 sudo cp /etc/pacman.conf /etc/pacman.conf.bak
+echo "Is multilib repository already enabled? yes/no"
+read answer2
+if [[ $answer2 == "no" || $answer2 == "NO" ]]; then
+echo "Ok, script won't enable multilib again."
+elif [[ $answer2 == "yes" || $answer2 == "YES" ]]; then
 echo "[multilib]" | sudo tee -a /etc/pacman.conf > /dev/null
 echo "Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
+else
+echo
+echo "Oops, something went wrong. :("
+fi
 sudo pacman -Sy curl wine-staging winetricks
 winecfg
 winetricks -q dxvk
