@@ -1,6 +1,7 @@
 # Watch Prime Video HD in GNU/Linux
 We need wine-staging, i have wine 7.5 (staging) now and it works perfect.
 We need Chrome (90), latest version is 100 but i can't open it with wine.
+Update: update came to wine-staging and it's 7.6 now but it's still working.
 Let's install them.
 # You need to run commands below:
 # If you are using Ubuntu & Debian:
