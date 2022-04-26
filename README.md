@@ -118,4 +118,15 @@ Run the .exe file with wine and install.
 ```
 wine *.exe
 ```
-# Start Chrome and Enjoy the HD quality!
+After installed Chrome, open Chrome.
+Go to chrome://components address.
+```
+chrome://components
+```
+Update Widevine Component.
+
+![image from components](https://imgur.com/eDiUHtTl.png "Widevine Component")
+
+After updated that component, restart Chrome.
+
+# Enjoy the HD quality!
