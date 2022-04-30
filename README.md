@@ -103,7 +103,7 @@ Secondly, enable dxvk.
 ```
 winetricks -q dxvk
 ```
-Thirdly, Download Chrome with user-agent switcher addon for your browser. We need to change user agent for be able to download exe version of Chrome, if we don't change our user agent, chrome detect that we are using linux and recommends chrome's linux packages.
+Thirdly, Download Chrome with user-agent switcher addon for your browser. We need to change user agent for be able to download exe version of Chrome, if we don't change our user agent to Windows, chrome detect that we are using linux and recommends chrome's linux packages.
 
 https://www.google.com/chrome/
 
