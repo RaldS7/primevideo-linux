@@ -1,10 +1,6 @@
 # Watch Prime Video HD in GNU/Linux
-We need wine-staging, i have wine 7.5 (staging) now and it works perfect.
-We need Chrome (90), latest version is 100 but i can't open it with wine.
+We need wine-staging and Chrome.
 
-Update: update came to wine-staging and it's 7.6 now but it's still working.
-
-Let's install them.
 # You need to run commands below:
 # If you are using Ubuntu & Debian:
 If your system is 64 bit, enable 32 bit architecture (if you haven't already):
@@ -107,8 +103,9 @@ Secondly, enable dxvk.
 ```
 winetricks -q dxvk
 ```
-Thirdly, Download Chrome (90) from Slimjet.
-https://www.slimjet.com/chrome/download-chrome.php?file=files%2F90.0.4430.72%2FChromeStandaloneSetup.exe
+Thirdly, Download Chrome with user-agent switcher addon for your browser. We need to change user agent for be able to download exe version of Chrome, if we don't change our user agent, chrome detect that we are using linux and recommends chrome's linux packages.
+
+https://www.google.com/chrome/
 
 Go to where .exe downloaded.
 ```
@@ -118,6 +115,13 @@ Run the .exe file with wine and install.
 ```
 wine *.exe
 ```
+After installed, you have to start Chrome with --no-sandbox parameter.
+I run Chrome with that command below:
+```
+wine .wine/drive_c/Program\ Files/Google/Chrome/Application/chrome.exe --no-sandbox
+```
+
+# For version 90 and older versions;
 After installed Chrome, open Chrome.
 Go to chrome://components address.
 ```
