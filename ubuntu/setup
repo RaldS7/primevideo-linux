@@ -3,12 +3,12 @@
 if ! type "wget" > /dev/null; then
 sudo apt install wget
 else
-exit
+echo ""
 fi
 if ! type "zenity" > /dev/null; then
 sudo apt install zenity
 else
-exit
+echo ""
 fi
 sudo dpkg --add-architecture i386
 wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo mv winehq.key /usr/share/keyrings/winehq-archive.key
