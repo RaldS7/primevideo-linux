@@ -1,5 +1,5 @@
 # Watch Prime Video HD in GNU/Linux
-We need wine-staging and Chrome.
+We need wine-staging, wget and Chrome.
 
 # You need to run commands below:
 # If you are using Ubuntu & Debian:
@@ -9,7 +9,7 @@ sudo dpkg --add-architecture i386
 ```
 Download and add the repository key: 
 ```
-wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key
+wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo mv winehq.key /usr/share/keyrings/winehq-archive.key
 ```
 Take backup of sources.list:
 ```
@@ -18,19 +18,35 @@ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 Add the repository: 
 For Ubuntu 20.04: 
 ```
-echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' | sudo tee -a /etc/apt/sources.list > /dev/null
+wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources && sudo mv winehq-focal.sources /etc/apt/sources.list.d/
 ```
 For Ubuntu 21.10:
 ```
-echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ impish main' | sudo tee -a /etc/apt/sources.list > /dev/null
+wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/impish/winehq-impish.sources && sudo mv winehq-impish.sources /etc/apt/sources.list.d/
 ```
 For Ubuntu 21.04:
+
+__NOTE:__ 2022-06-06 This Ubuntu version no longer visible in wine's ubuntu webpage, so here is adding repo old style.
 ```
 echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
 For Ubuntu 20.10:
+
+__NOTE:__ 2022-06-06 This Ubuntu version no longer visible in wine's ubuntu webpage, so here is adding repo old style.
 ```
 echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main' | sudo tee -a /etc/apt/sources.list > /dev/null
+```
+For Ubuntu 22.04:
+```
+wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources && sudo mv winehq-jammy.sources /etc/apt/sources.list.d/
+```
+For:
+Ubuntu 18.04
+Linux Mint 19.x
+
+__NOTE:__ Ubuntu 18.04/Linux Mint 19.x do not provide FAudio, which is a dependency of Wine versions prior to 6.21. Users of the current wine-stable packages will need to install this. Follow the instructions in https://forum.winehq.org/viewtopic.php?f=8&t=32192 to install FAudio from the OBS. (FAudio packages for Ubuntu 19.10 and later are in the distro's universe repository.) 
+```
+wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/bionic/winehq-bionic.sources && sudo mv winehq-bionic.sources /etc/apt/sources.list.d/
 ```
 Update packages: 
 ```
@@ -40,17 +56,22 @@ Then install wine-staging:
 ```
 sudo apt install --install-recommends winehq-staging
 ```
+For Debian:
+
+__NOTE:__ The WineHQ packages for Debian 10 and later require libfaudio0 as a dependency. Since the distro does not provide it for Debian 10, users of that version can download libfaudio0 packages from the OBS. See https://forum.winehq.org/viewtopic.php?f=8&t=32192 for details.
+
+
 For Debian 10 (Buster):
 ```
-echo 'deb https://dl.winehq.org/wine-builds/debian/ buster main' | sudo tee -a /etc/apt/sources.list > /dev/null
+wget -nc https://dl.winehq.org/wine-builds/debian/dists/buster/winehq-buster.sources && sudo mv winehq-buster.sources /etc/apt/sources.list.d/
 ```
 For Debian 11 (Bullseye):
 ```
-echo 'deb https://dl.winehq.org/wine-builds/debian/ bullseye main' | sudo tee -a /etc/apt/sources.list > /dev/null
+wget -nc https://dl.winehq.org/wine-builds/debian/dists/bullseye/winehq-bullseye.sources && sudo mv winehq-bullseye.sources /etc/apt/sources.list.d/
 ```
 For Debian Testing (Bookworm):
 ```
-echo 'deb https://dl.winehq.org/wine-builds/debian/ bookworm main' | sudo tee -a /etc/apt/sources.list > /dev/null
+wget -nc https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources && sudo mv winehq-bookworm.sources /etc/apt/sources.list.d/
 ```
 Update packages: 
 ```
@@ -120,8 +141,26 @@ I run Chrome with that command below:
 ```
 wine .wine/drive_c/Program\ Files/Google/Chrome/Application/chrome.exe --no-sandbox
 ```
+If there is a Chrome shortcut file on your Desktop, you can also add --no-sandbox parameter with editing it. 
+Right click on Chrome shortcut file,
+Open with text editor,
+In exec section add --no-sandbox parameter in the end of line.
 
-# For version 90 and older versions;
+Here is a my Google shortcut file:
+```
+cat ~/.local/share/applications/wine/Programs/Google\ Chrome.desktop
+[Desktop Entry]
+Name=Google Chrome
+Exec=env WINEPREFIX="/home/nxjoseph/.wine" wine C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start\\ Menu\\\\Programs\\\\Google\\ Chrome.lnk --no-sandbox
+Type=Application
+StartupNotify=true
+Comment=İnternet'e erişin
+Path=/home/nxjoseph/.wine/dosdevices/c:/Program Files/Google/Chrome/Application
+Icon=6F89_chrome.0
+StartupWMClass=chrome.exe
+```
+
+# For Chrome version 90 and older versions;
 After installed Chrome, open Chrome.
 Go to chrome://components address.
 ```
