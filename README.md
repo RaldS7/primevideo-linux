@@ -2,23 +2,24 @@
 We need wine-staging, wget and Chrome.
 
 # You need to run commands below:
-# If you are using Ubuntu & Debian:
+## Installing instructions for Ubuntu
 If your system is 64 bit, enable 32 bit architecture (if you haven't already):
 ```
 sudo dpkg --add-architecture i386 
 ```
 Download and add the repository key: 
 ```
-wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo mv winehq.key /usr/share/keyrings/winehq-archive.key
+sudo wget -nc -O /usr/share/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
 ```
-Take backup of sources.list:
+Add the repository:
+For Ubuntu 18.04 (Bionic Beaver), Linux Mint 19.x:
+> NOTE:  Ubuntu 18.04/Linux Mint 19.x do not provide FAudio, which is a dependency of Wine versions prior to 6.21. Users of the current wine-stable packages will need to install this. Follow the instructions in https://forum.winehq.org/viewtopic.php?f=8&t=32192 to install FAudio from the OBS. (FAudio packages for Ubuntu 19.10 and later are in the distro's universe repository.)
 ```
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/bionic/winehq-bionic.sources
+``` 
+For Ubuntu 20.04 (Focal Fossa), Linux Mint 20.x:
 ```
-Add the repository: 
-For Ubuntu 20.04: 
-```
-wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources && sudo mv winehq-focal.sources /etc/apt/sources.list.d/
+sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources
 ```
 For Ubuntu 21.10:
 ```
@@ -36,17 +37,15 @@ __NOTE:__ 2022-06-06 This Ubuntu version no longer visible in wine's ubuntu webp
 ```
 echo 'deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main' | sudo tee -a /etc/apt/sources.list > /dev/null
 ```
-For Ubuntu 22.04:
+For Ubuntu 22.04 (Jammy Jellyfish), Linux Mint 21.x:
 ```
-wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources && sudo mv winehq-jammy.sources /etc/apt/sources.list.d/
+sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
 ```
-For:
-Ubuntu 18.04
-Linux Mint 19.x
+For Ubuntu 18.04, Linux Mint 19.x:
 
 __NOTE:__ Ubuntu 18.04/Linux Mint 19.x do not provide FAudio, which is a dependency of Wine versions prior to 6.21. Users of the current wine-stable packages will need to install this. Follow the instructions in https://forum.winehq.org/viewtopic.php?f=8&t=32192 to install FAudio from the OBS. (FAudio packages for Ubuntu 19.10 and later are in the distro's universe repository.) 
 ```
-wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/bionic/winehq-bionic.sources && sudo mv winehq-bionic.sources /etc/apt/sources.list.d/
+sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/bionic/winehq-bionic.sources
 ```
 Update packages: 
 ```
@@ -56,22 +55,30 @@ Then install wine-staging:
 ```
 sudo apt install --install-recommends winehq-staging
 ```
-For Debian:
+## Installing instructions for Debian
+If your system is 64 bit, enable 32 bit architecture (if you haven't already):
+```
+sudo dpkg --add-architecture i386 
+```
+Download and add the repository key: 
+```
+sudo wget -nc -O /usr/share/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+```
+Download the WineHQ sources file:
 
 __NOTE:__ The WineHQ packages for Debian 10 and later require libfaudio0 as a dependency. Since the distro does not provide it for Debian 10, users of that version can download libfaudio0 packages from the OBS. See https://forum.winehq.org/viewtopic.php?f=8&t=32192 for details.
 
-
 For Debian 10 (Buster):
 ```
-wget -nc https://dl.winehq.org/wine-builds/debian/dists/buster/winehq-buster.sources && sudo mv winehq-buster.sources /etc/apt/sources.list.d/
+sudo wget -nc -P /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/buster/winehq-buster.sources
 ```
 For Debian 11 (Bullseye):
 ```
-wget -nc https://dl.winehq.org/wine-builds/debian/dists/bullseye/winehq-bullseye.sources && sudo mv winehq-bullseye.sources /etc/apt/sources.list.d/
+sudo wget -nc -P /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bullseye/winehq-bullseye.sources
 ```
 For Debian Testing (Bookworm):
 ```
-wget -nc https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources && sudo mv winehq-bookworm.sources /etc/apt/sources.list.d/
+sudo wget -nc -P /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources
 ```
 Update packages: 
 ```
@@ -81,7 +88,7 @@ Then install wine-staging:
 ```
 sudo apt install --install-recommends winehq-staging
 ```
-# If you are using Arch-based distros:
+## Installing instructions for Arch Linux
 Enable multilib repository from /etc/pacman.conf
 Go to /etc/pacman.conf with nano editor
 ```
@@ -115,7 +122,7 @@ Firstly, clear your terminal if you didn't because we did a lot of things.
 ```
 clear
 ```
-Open your winecfg and make your Windows version "Windows 7"
+Open your winecfg and make sure your Windows version is "Windows 7".
 ```
 winecfg
 ```
@@ -124,31 +131,32 @@ Secondly, enable dxvk.
 ```
 winetricks -q dxvk
 ```
-Thirdly, Download Chrome with user-agent switcher addon for your browser. We need to change user agent for be able to download exe version of Chrome, if we don't change our user agent to Windows, chrome detect that we are using linux and recommends chrome's linux packages.
+Thirdly, Download Chrome with user-agent switcher addon for your browser. We need to change user agent for be able to download exe version of Chrome, if we don't change our user agent to Windows, they detect that we are using linux and recommends chrome's linux packages.
 
 https://www.google.com/chrome/
 
-Go to where .exe downloaded.
+Go to where Chrome's exe downloaded, usually it'll be Downloads.
 ```
 cd /path/to/exe
 ```
-Run the .exe file with wine and install.
+Run Chrome's exe file with wine and install.
 ```
-wine *.exe
+wine ChromeSetup.exe
 ```
-After installed, you have to start Chrome with --no-sandbox parameter.
-I run Chrome with that command below:
+After installed, you have to start Chrome with `--no-sandbox` parameter. You can add this parameter by editing Chrome's desktop file. There may be Chrome's desktop file on your Desktop, right click on it and edit with any text editor. In the `Exec=` section, add `--no-sandbox` to end of that line.
+If there is not a Chrome shortcut file on your Desktop:
+Edit this `~/.local/share/applications/wine/Programs/Google\ Chrome.desktop` file with nano or any graphical text editor you want.
 ```
-wine .wine/drive_c/Program\ Files/Google/Chrome/Application/chrome.exe --no-sandbox
+nano ~/.local/share/applications/wine/Programs/Google\ Chrome.desktop
 ```
-If there is a Chrome shortcut file on your Desktop, you can also add --no-sandbox parameter with editing it. 
-Right click on Chrome shortcut file,
-Open with text editor,
-In exec section add --no-sandbox parameter in the end of line.
+or ( gedit usually installed on gnome desktop environment. if you don't use gedit, replace `gedit` with your text editor.)
+```
+gedit ~/.local/share/applications/wine/Programs/Google\ Chrome.desktop
+```
+In the `Exec=` section, add `--no-sandbox` to end of that line.
 
-Here is a my Google shortcut file:
+Example Chrome desktop file:
 ```
-cat ~/.local/share/applications/wine/Programs/Google\ Chrome.desktop
 [Desktop Entry]
 Name=Google Chrome
 Exec=env WINEPREFIX="/home/nxjoseph/.wine" wine C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start\\ Menu\\\\Programs\\\\Google\\ Chrome.lnk --no-sandbox
