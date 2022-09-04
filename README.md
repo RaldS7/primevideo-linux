@@ -1,7 +1,13 @@
 # Watch Prime Video HD in GNU/Linux
 We need wine-staging, wget and Chrome.
 
-# You need to run commands below:
+## Installing instructions for:
+- [Ubuntu](#installing-instructions-for-ubuntu)
+- [Debian](#installing-instructions-for-debian)
+- [Arch Linux](#installing-instructions-for-arch-linux)
+- [Fedora](#installing-instructions-for-fedora)
+- [Get Started after install requirements](#lets-get-started)
+
 ## Installing instructions for Ubuntu
 If your system is 64 bit, enable 32 bit architecture (if you haven't already):
 ```
