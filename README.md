@@ -49,6 +49,12 @@ Then install wine-staging:
 ```
 sudo apt install --install-recommends winehq-staging
 ```
+
+Install winetricks:
+```
+sudo apt install winetricks
+```
+
 ## Installing instructions for Debian
 If your system is 64 bit, enable 32 bit architecture (if you haven't already):
 ```
@@ -82,6 +88,12 @@ Then install wine-staging:
 ```
 sudo apt install --install-recommends winehq-staging
 ```
+
+Install winetricks:
+```
+sudo apt install winetricks
+```
+
 ## Installing instructions for Arch Linux
 Enable multilib repository from /etc/pacman.conf
 Go to /etc/pacman.conf with nano editor
@@ -101,6 +113,12 @@ Then install wine-staging:
 ```
 sudo pacman -S wine-staging
 ```
+
+Install winetricks:
+```
+sudo pacman -S winetricks
+```
+
 ## Installing instructions for Fedora
 Add the repository for Fedora 36:
 ```
@@ -115,15 +133,11 @@ Install wine-staging:
 dnf install winehq-staging
 ```
 
-# We need winetricks to enable dxvk
-For Ubuntu & Debian:
+Install winetricks:
 ```
-sudo apt install winetricks
+sudo dnf install winetricks
 ```
-For Arch-based distros:
-```
-sudo pacman -S winetricks
-```
+
 # Let's get started.
 Firstly, clear your terminal if you didn't because we did a lot of things.
 ```
