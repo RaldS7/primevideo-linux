@@ -122,15 +122,15 @@ sudo pacman -S winetricks
 ## Installing instructions for Fedora
 Add the repository for Fedora 36:
 ```
-dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/36/winehq.repo
+sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/36/winehq.repo
 ```
 Add the repository for Fedora 35:
 ```
-dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/35/winehq.repo
+sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/35/winehq.repo
 ```
 Install wine-staging:
 ```
-dnf install winehq-staging
+sudo dnf install winehq-staging
 ```
 
 Install winetricks:
