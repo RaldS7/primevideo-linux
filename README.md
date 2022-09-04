@@ -101,6 +101,20 @@ Then install wine-staging:
 ```
 sudo pacman -S wine-staging
 ```
+## Installing instructions for Fedora
+Add the repository for Fedora 36:
+```
+dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/36/winehq.repo
+```
+Add the repository for Fedora 35:
+```
+dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/35/winehq.repo
+```
+Install wine-staging:
+```
+dnf install winehq-staging
+```
+
 # We need winetricks to enable dxvk
 For Ubuntu & Debian:
 ```
