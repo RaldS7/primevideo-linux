@@ -2,17 +2,10 @@
 
 ## Requirements
 
+- [wget](#install-wget)
 - [wine-staging](#installing-instructions-wine-staging-and-winetricks-for-distributions)
 - [winetricks](#installing-instructions-wine-staging-and-winetricks-for-distributions)
-- [wget](#install-wget)
 - [Google Chrome (Windows version)](#before-installing-google-chrome)
-
-## Installing instructions wine-staging and winetricks for distributions
-
-- [Ubuntu](#installing-instructions-for-ubuntu)
-- [Debian](#installing-instructions-for-debian)
-- [Arch Linux](#installing-instructions-for-arch-linux)
-- [Fedora](#installing-instructions-for-fedora)
 
 ## Install wget
 __Ubuntu & Debian__
@@ -27,6 +20,14 @@ __Fedora__
 ```
 sudo dnf install wget
 ```
+
+## Installing instructions wine-staging and winetricks for distributions
+
+- [Ubuntu](#installing-instructions-for-ubuntu)
+- [Debian](#installing-instructions-for-debian)
+- [Arch Linux](#installing-instructions-for-arch-linux)
+- [Fedora](#installing-instructions-for-fedora)
+
 
 ## Installing instructions for Ubuntu
 [Go top](#watch-prime-video-hd-in-gnulinux)
