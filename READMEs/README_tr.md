@@ -2,17 +2,10 @@
 
 ## Gerekenler
 
+- [wget](#wget-y%C3%BCkleyin)
 - [wine-staging](#baz%C4%B1-da%C4%9F%C4%B1t%C4%B1mlar-i%C3%A7in-wine-staging-ve-winetricks-y%C3%BCkleme-talimatlar%C4%B1)
 - [winetricks](#baz%C4%B1-da%C4%9F%C4%B1t%C4%B1mlar-i%C3%A7in-wine-staging-ve-winetricks-y%C3%BCkleme-talimatlar%C4%B1)
-- [wget](#wget-y%C3%BCkleyin)
 - [Google Chrome (Windows versiyonu)](#google-chrome-y%C3%BCklemeden-%C3%B6nce-yap%C4%B1lacaklar)
-
-## Bazı dağıtımlar için wine-staging ve winetricks yükleme talimatları
-
-- [Ubuntu](#ubuntu-i%C3%A7in-kurulum-talimatlar%C4%B1)
-- [Debian](#debian-i%C3%A7in-kurulum-talimatlar%C4%B1)
-- [Arch Linux](#arch-linux-i%C3%A7in-kurulum-talimatlar%C4%B1)
-- [Fedora](#fedora-i%C3%A7in-kurulum-talimatlar%C4%B1)
 
 ## wget yükleyin
 __Ubuntu & Debian__
@@ -27,6 +20,14 @@ __Fedora__
 ```
 sudo dnf install wget
 ```
+
+## Bazı dağıtımlar için wine-staging ve winetricks yükleme talimatları
+
+- [Ubuntu](#ubuntu-i%C3%A7in-kurulum-talimatlar%C4%B1)
+- [Debian](#debian-i%C3%A7in-kurulum-talimatlar%C4%B1)
+- [Arch Linux](#arch-linux-i%C3%A7in-kurulum-talimatlar%C4%B1)
+- [Fedora](#fedora-i%C3%A7in-kurulum-talimatlar%C4%B1)
+
 
 ## Ubuntu için kurulum talimatları
 [Başa dön](#gnulinux-da%C4%9F%C4%B1t%C4%B1m%C4%B1nda-prime-videoyu-hd-izleme-rehberi)
